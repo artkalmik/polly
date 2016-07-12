@@ -1,3 +1,3 @@
 require "./polly"
 
-run Polly
+run Sinatra::Application
