@@ -6,12 +6,63 @@
     <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
     <link href="/css/polly.css" type="text/css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,500,600' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/polly.js"></script>
   </head>
   <body>
-
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Polly</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" ng-controller="phonesController">
+          <div class="input-group" style="width:100%">
+            <select class="form-control" ng-change="getModels()" ng-model="selectedBrand" ng-options="brand for brand in brands" style="margin-bottom:10px;"></select>
+            <select class="form-control" ng-change="getDesc()" ng-model="selectedModel" ng-options="model.name for model in models"  ng-show="selectedBrand"></select>
+          </div>
+          <div ng-show="selectedModel" style="padding-top:10px;">
+            <img ng-src="{{selectedModel.img}}" width="100px" />
+            <h3>Description</h3>
+            <table ng-show="description" ng-repeat="(key, values) in description" class="table table-striped">
+              <thead>
+                <tr>
+                  <th colspan="2"><h4>{{key}}</h4></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(k, v) in values">
+                  <td style="width:25%;"><strong>{{k}}</strong></td>
+                  <td>{{v}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6" ng-controller="searchController">
+          <div class="input-group input-group">
+            <span class="input-group-addon" id="sizing-addon2">Search phone</span>
+            <input type="text" class="form-control" placeholder="input your text here" aria-describedby="sizing-addon2" ng-model="searchedItem" ng-change="searchItem()">
+          </div>
+          <div class="row" ng-show="searchedItem">
+            <div class="media" ng-repeat="item in items" style="padding-top:10px; margin-left:15px;">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" ng-src="{{item.img}}" width="60px" >
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{item.name}}</h4>
+                <p>{{item.short}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
