@@ -13,18 +13,22 @@
     <script src="/js/polly.js"></script>
   </head>
   <body>
+    <!--Navbar-->
     <nav class="navbar navbar-default">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Polly</a>
       </div>
     </nav>
+    <!--Main content-->
     <div class="container">
       <div class="row">
         <div class="col-md-6" ng-controller="phonesController">
+          <!--Select fields-->
           <div class="input-group" style="width:100%">
             <select class="form-control" ng-change="getModels()" ng-model="selectedBrand" ng-options="brand for brand in brands" style="margin-bottom:10px;"><option value="">- Please Choose Brand-</option></select>
             <select class="form-control" ng-change="getDesc()" ng-model="selectedModel" ng-options="model.name for model in models"  ng-show="selectedBrand"><option value="">- Please Choose Model -</option></select>
           </div>
+          <!--Phone description container-->
           <div ng-show="selectedModel" style="padding-top:10px;">
             <img ng-src="{{selectedModel.img}}" width="100px" />
             <h3>Description</h3>
@@ -44,10 +48,12 @@
           </div>
         </div>
         <div class="col-md-6" ng-controller="searchController">
+          <!--Search field-->
           <div class="input-group input-group">
             <span class="input-group-addon" id="sizing-addon2">Search phone</span>
             <input type="text" class="form-control" placeholder="input your text here" aria-describedby="sizing-addon2" ng-model="searchedItem" ng-change="searchItem()">
           </div>
+          <!--Media containers-->
           <div class="row" ng-show="searchedItem">
             <div class="media" ng-repeat="item in items" style="padding-top:10px; margin-left:15px;">
               <div class="media-left">

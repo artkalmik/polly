@@ -20,7 +20,7 @@ get "/brands" do
 end
 
 get "/models" do
-  JSON models: get_config.models(params[:brand])
+  JSON models: get_config.models(params[:brand]) || nil
 end
 
 get "/phones" do

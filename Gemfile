@@ -4,11 +4,10 @@ gem "sinatra"
 gem "sinatra-param"
 gem "thin"
 gem "shotgun"
-gem "ruby-prof"
 gem "polly_phone"
+gem "rack"
 
 group :test, :development do
-  gem "byebug"
   gem "rspec"
-  gem "shoulda-matchers"
+  gem 'rack-test', :require => "rack/test"
 end
