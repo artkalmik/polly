@@ -9,8 +9,8 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pkg-config (1.1.7)
-    polly_phone (0.1.0)
-      nokogiri
+    polly_phone (0.1.1)
+      nokogiri (~> 1.6.8)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
