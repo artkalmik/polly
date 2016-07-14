@@ -8,7 +8,7 @@ configure do
 end
 
 def get_config
-  PollyPhone::Site.new(File.dirname(__FILE__) + "/sites/gsmarena.yml")
+  PollyPhone::Site.new(File.dirname(__FILE__) + "/sites/config.yml")
 end
 
 get "/" do
