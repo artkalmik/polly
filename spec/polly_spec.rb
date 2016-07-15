@@ -24,6 +24,12 @@ describe "Polly" do
     expect(resp["models"].count).to be > 100
   end
 
+  it "should get phone description" do
+    get '/phones', :phone_url => "apple_iphone_6s-7242.php"
+    resp = JSON.parse(last_response.body)
+    expect(resp["desc"].keys.count).to be > 1
+  end
+
   it "should search phone" do
     get '/search', :item => "iphone"
     resp = JSON.parse(last_response.body)
